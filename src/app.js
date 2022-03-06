@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
-const HelloController = require("./controllers/HelloController");
 require("./database/index");
+const routesApi = require("./routes");
 
 class App {
     constructor() {
@@ -17,7 +17,7 @@ class App {
     }
 
     routes() {
-        this.app.get("/hello", HelloController.index);
+        this.app.use(routesApi);
     }
 
     server() {
