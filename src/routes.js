@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const UsersController = require("./controllers/UsersController");
+const RepositoriesController = require("./controllers/RepositoriesController");
 
 const routes = new Router();
 
@@ -8,5 +9,11 @@ routes.get("/users/:id", UsersController.showOne);
 routes.post("/users", UsersController.create);
 routes.put("/users/:id", UsersController.update);
 routes.delete("/users/:id", UsersController.destroy);
+
+
+routes.get("/users/:user_id/repositories", RepositoriesController.indexAll);
+routes.post("/users/:user_id/repositories", RepositoriesController.create);
+routes.delete("/users/:user_id/repositories", RepositoriesController.destroy);
+
 
 module.exports = routes;
