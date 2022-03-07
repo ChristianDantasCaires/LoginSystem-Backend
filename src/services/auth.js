@@ -1,7 +1,7 @@
 const bcryptjs = require("bcryptjs");
 
-const createHashPassword = (password) => {
-    return bcryptjs.hash(password, 8);
-}
+const createHashPassword = (password) => bcryptjs.hash(password, 8);
 
-module.exports = createHashPassword;
+const checkPassword = (user, password) => bcryptjs.compare(password, user.password);
+
+module.exports = { createHashPassword, checkPassword };
